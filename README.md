@@ -20,7 +20,9 @@ OR
 - [Manjaro ISO](https://manjaro.org/download/)  
 - [Rufus](https://rufus.ie/)  
 
-A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.
+A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.  
+I also used my phone as an USB tether device, so I could have internet with the initial wifi drivers ;)  
+
 
 # I) Before Linux install :
 
@@ -53,18 +55,18 @@ Click create
 Set `/` as the mount point.  
 Save and exit.  
 7. Check and double check, f\* it **TRIPLE check** that you're not erasing anything you shouldn't.  
-8. Let it install.  
+8. Let it install & reboot.  
 
 # III) After Linux install :
 
 1. Reboot on your Bootable USB Key  
 2. Select "Detect EFI partitions"  
-3. Select the Manjaro boot entry (ending with grubx64)  
-4. Run an update `sudo pacman -Syu`  
+3. Select the Manjaro boot entry (ending with grubx64)    
 5. Repeat steps III)
 
-# IIII) Jakeday Kernel install :  
-0. Open a terminal  
+# IIII) Jakeday Kernel install :   
+0. Open a terminal
+**Recommended**: `sudo pacman -Syu`
 1. `git clone https://github.com/dmhacker/arch-linux-surface.git ~/surface-kernel`  
 2. `cd ~/surface-kernel`  
 3. `sudo sh setup.sh`  
@@ -76,7 +78,7 @@ Save and exit.
 
 # IIIII) Grub process :  
 
-1. Open a terminal  
+0. Open a terminal  
 2. Type `efibootmgr`  
 Take note of *Manjaro* and *EFI USB* entries' IDs (the 4-digit number on the left)  
 For me, `Manjaro: 0002`, `Windows: 0000`, `EFI USB: 2001` and `EFI Network: 2002`  
