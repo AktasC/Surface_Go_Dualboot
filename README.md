@@ -1,11 +1,5 @@
 # Surface_Go_Dualboot  
-
-# Disclaimer:  
-**I AM NOT RESPONSIBLE if your Surface Go bricks, explodes, if you break into NSA, FBI, CIA, NASA databases, cause a nuclear meltdown or show any other "bad behavior" after using this guide.**  
-(Just to be sure people understand how terminal commands are powerful and not reading twice before executing is dangerous.)  
-
-------  
-
+  
 # Disclaimer:  
 __**I AM NOT RESPONSIBLE if your Surface Go bricks, explodes, if you break into NSA, FBI, CIA, NASA databases, cause a nuclear meltdown or show any other "bad behavior" after using this guide.**__  
 (Just to be sure people understand how terminal commands are powerful and not reading twice before executing is dangerous.)  
@@ -65,8 +59,8 @@ Save and exit.
 5. Repeat steps III)
 
 # IIII) Jakeday Kernel install :   
-0. Open a terminal
-**Recommended**: `sudo pacman -Syu`
+0. Open a terminal  
+**Recommended**: `sudo pacman -Syu`  
 1. `git clone https://github.com/dmhacker/arch-linux-surface.git ~/surface-kernel`  
 2. `cd ~/surface-kernel`  
 3. `sudo sh setup.sh`  
