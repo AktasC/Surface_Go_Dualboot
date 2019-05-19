@@ -56,7 +56,8 @@ Save and exit.
 4. Reboot and repeat steps III) 1 to 3
 5. Install [DMHacker's Jakeday Linux-Surface kernel fork](https://github.com/dmhacker/arch-linux-surface).  
 6. Repeat steps III) 1 to 3  
-7. Open a terminal and type  `efibootmgr`Look for the *Manjaro* and the *EFI USB* entries, take note of their ID (the 4-digit number on the left)  
+7. Open a terminal and type  `efibootmgr`  
+Look for the *Manjaro* and the *EFI USB* entries, take note of their ID (the 4-digit number on the left)  
 8. For me, Manjaro = 0002, Windows = 0000, EFI USB = 2001 and EFI Network is 2002  
 So I typed `efibootmgr -o 2001,0002,0000,2002` in order to have Manjaro be the first boot option  
 9. Rebuild grub config file `grub-mkconfig -o /boot/grub/grub.cfg`  
