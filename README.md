@@ -9,7 +9,9 @@ Requirements:
 - 1x Type-C to USB A adapter  
 - 1x 8Go+ USB Key  
 OR  
-- 1x 8Go+ Type-C USB Key
+- 1x 8Go+ Type-C USB Key  
+- [Manjaro ISO](https://manjaro.org/download/)  
+- [Rufus](https://rufus.ie/)  
 
 A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.
 
