@@ -6,6 +6,12 @@
 
 ------  
 
+# Disclaimer:  
+__**I AM NOT RESPONSIBLE if your Surface Go bricks, explodes, if you break into NSA, FBI, CIA, NASA databases, cause a nuclear meltdown or show any other "bad behavior" after using this guide.**__  
+(Just to be sure people understand how terminal commands are powerful and not reading twice before executing is dangerous.)  
+
+------  
+
 Requirements:  
 - 1x Type-C to USB A adapter  
 - 1x 8Go+ USB Key  
@@ -14,9 +20,9 @@ OR
 - [Manjaro ISO](https://manjaro.org/download/)  
 - [Rufus](https://rufus.ie/)  
 
-A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.  
+A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.
 
-# I) Before Linux install :  
+# I) Before Linux install :
 
 1. Disable bitlocker / encryption (windows settings)  
 2. Shrink your main Win 10 partition so you can get \~25G for the distro + 8G for swap  
@@ -30,38 +36,53 @@ Use the `dd` method when asked
 8. Save & Exit  
 
 __Now you should get to the grub menu on your usb key.__  
-
-# II) Linux install :  
+# II) Linux install :
 
 1. Select your locals (timezone, language, keyboard, etc) & launch Manjaro  
 1. Do the same steps in the installer ...  
 2. Select `manually partition` when asked  
-3. Select the 260 Mo partition (must be the first) and click Modify  
-Set `/boot/efi` as the mount point.  
-Save and exit  
-4. Select the fresh and free partition you created in I) step 2 on Windows and click create  
-5. Create an 8G (or 4G if you have the 4G variant) and change the \`ext4\` format to `linuxswap`. Click save and exit.  
-6. Create a partition with the rest.  
+3. Select the 260 Mo partition (must be the first)  
+ Set `/boot/efi` as the mount point.  
+ Save and exit  
+4. Select the partition you created in I) step 2 on Windows  
+Click create  
+5. Set the size to 8GB (or 4GB if you have the 4GB variant)  
+ Change the `ext4` format to `linuxswap`.  
+ Click save and exit.  
+6. Create a partition with the remaining space.  
 Set `/` as the mount point.  
 Save and exit.  
 7. Check and double check, f\* it **TRIPLE check** that you're not erasing anything you shouldn't.  
 8. Let it install.  
 
-# III) After Linux install :  
+# III) After Linux install :
 
 1. Reboot on your Bootable USB Key  
 2. Select "Detect EFI partitions"  
 3. Select the Manjaro boot entry (ending with grubx64)  
 4. Run an update `sudo pacman -Syu`  
-4. Reboot and repeat steps III) 1 to 3
-5. Install [DMHacker's Jakeday Linux-Surface kernel fork](https://github.com/dmhacker/arch-linux-surface).  
-6. Repeat steps III) 1 to 3  
-7. Open a terminal and type  `efibootmgr`  
-Look for the *Manjaro* and the *EFI USB* entries, take note of their ID (the 4-digit number on the left)  
-8. For me, Manjaro = 0002, Windows = 0000, EFI USB = 2001 and EFI Network is 2002  
-So I typed `efibootmgr -o 2001,0002,0000,2002` in order to have Manjaro be the first boot option  
-9. Rebuild grub config file `grub-mkconfig -o /boot/grub/grub.cfg`  
-10. **ENJOY!**  
+5. Repeat steps III)
+
+# IIII) Jakeday Kernel install :  
+1. `git clone https://github.com/dmhacker/arch-linux-surface.git ~/surface-kernel`  
+2. `cd ~/surface-kernel`  
+3. `sudo sh setup.sh`  
+4. `sudo sh configure.sh`  
+5. `cd build-{VERSION}` (replace `{VERSION}` with the actual version)  
+6. `sudo chown -R user:user .` (replace `user` with your username)  
+7. `MAKEFLAGS="-j$nproc" makepkg -sc`
+6. Repeat steps III)  
+
+# IIIII) Grub process :  
+
+1. Open a terminal  
+2. Type `efibootmgr`  
+Take note of *Manjaro* and *EFI USB* entries' IDs (the 4-digit number on the left)  
+For me, `Manjaro: 0002`, `Windows: 0000`, `EFI USB: 2001` and `EFI Network: 2002`  
+3. **Recommended** : `efibootmgr -o {EFI USB ID},{ManjaroID},{WindowsID},{EFI Network ID}`  
+Example : `efibootmgr -o 2001,0002,0000,2002`    
+4. `grub-mkconfig -o /boot/grub/grub.cfg`  
+5. **ENJOY!**  
 
 ------  
 
