@@ -64,6 +64,7 @@ Save and exit.
 5. Repeat steps III)
 
 # IIII) Jakeday Kernel install :  
+0. Open a terminal  
 1. `git clone https://github.com/dmhacker/arch-linux-surface.git ~/surface-kernel`  
 2. `cd ~/surface-kernel`  
 3. `sudo sh setup.sh`  
