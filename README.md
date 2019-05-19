@@ -86,7 +86,7 @@ Example : `efibootmgr -o 2001,0002,0000,2002`
 
 ------  
 
-Special thanks to :
+## Special thanks to :
 - [Jakeday](https://github.com/jakeday) Linux-Surface kernel
 - [DMHacker](https://github.com/dmhacker) Linux-Surface kernel's Arch fork
 - [Arch Wiki contributors](https://wiki.archlinux.org/index.php/GRUB#UEFI_systems) Archlinux's _"Bible"_   
