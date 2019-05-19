@@ -4,7 +4,8 @@
 **I AM NOT RESPONSIBLE if your Surface Go bricks, explodes, if you break into NSA, FBI, CIA, NASA databases, cause a nuclear meltdown or show any other "bad behavior" after using this guide.**  
 (Just to be sure people understand how terminal commands are powerful and not reading twice before executing is dangerous.)  
 
-------
+------  
+
 Requirements:  
 - 1x Type-C to USB A adapter  
 - 1x 8Go+ USB Key  
@@ -13,9 +14,9 @@ OR
 - [Manjaro ISO](https://manjaro.org/download/)  
 - [Rufus](https://rufus.ie/)  
 
-A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.
+A second usb key with the kernel binaries might be handy as you might not have Wi-Fi at first boot.  
 
-# I) Before Linux install :
+# I) Before Linux install :  
 
 1. Disable bitlocker / encryption (windows settings)  
 2. Shrink your main Win 10 partition so you can get \~25G for the distro + 8G for swap  
@@ -28,9 +29,9 @@ Use the `dd` method when asked
 7. Put the USB boot entry before the Windows boot entry (just in case)  
 8. Save & Exit  
 
-
 __Now you should get to the grub menu on your usb key.__  
-# II) Linux install :
+
+# II) Linux install :  
 
 1. Select your locals (timezone, language, keyboard, etc) & launch Manjaro  
 1. Do the same steps in the installer ...  
@@ -46,7 +47,7 @@ Save and exit.
 7. Check and double check, f\* it **TRIPLE check** that you're not erasing anything you shouldn't.  
 8. Let it install.  
 
-# III) After Linux install :
+# III) After Linux install :  
 
 1. Reboot on your Bootable USB Key  
 2. Select "Detect EFI partitions"  
@@ -63,22 +64,7 @@ So I typed `efibootmgr -o 2001,0002,0000,2002` in order to have Manjaro be the f
 
 ------  
 
-
-Hope this helps :)  
-
-
-If I made a mistake or something is unclear, please gently let me know.  
-Some people might like to use grub-customize, I don't.  
-This is a simple guide, nothing specific to the Surface Go except the Kernel steps so you can use this for any Linux install with a little bit of tweaking.  
-
-------
-
 Special thanks to :
 - [Jakeday](https://github.com/jakeday) Linux-Surface kernel
 - [DMHacker](https://github.com/dmhacker) Linux-Surface kernel's Arch fork
 - [Arch Wiki contributors](https://wiki.archlinux.org/index.php/GRUB#UEFI_systems) Archlinux's _"Bible"_   
-
-------
-
-Regards,  
-Kay
