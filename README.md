@@ -22,16 +22,19 @@ I also used my phone as an USB tether device, so I could have internet with the 
 
 1. Disable bitlocker / encryption (windows settings)  
 2. Shrink your main Win 10 partition so you can get \~25G for the distro + 8G for swap  
-3. Create your bootable usb with Rufusa  
-Replace MBR with GPT partition table in Rufus and click start.  
-Use the `dd` method when asked  
+3. Plug in your USB drive
+3. Launch rufus
+  Select your Manjaro ISO file
+  **Replace MBR with GPT partition table in Rufus and click start.**  
+  **Use the `dd` method when asked**  
 4. Shutdown your Surface go.  
 5. Reboot while holding Volume Up + Power buttons  
 6. Get to "Boot" and disable SecureBoot  
-7. Put the USB boot entry before the Windows boot entry (just in case)  
+7. Put the USB boot entry before the Windows boot entry  
 8. Save & Exit  
 
 __Now you should get to the grub menu on your usb key.__  
+
 # II) Linux install :
 
 1. Select your locals (timezone, language, keyboard, etc) & launch Manjaro  
@@ -58,7 +61,7 @@ Save and exit.
 3. Select the Manjaro boot entry (ending with grubx64)    
 5. Repeat steps III)
 
-# IIII) Jakeday Kernel install :   
+# IV) Jakeday Kernel install :   
 0. Open a terminal  
 **Recommended**: `sudo pacman -Syu`  
 1. `git clone https://github.com/dmhacker/arch-linux-surface.git ~/surface-kernel`  
@@ -70,7 +73,7 @@ Save and exit.
 7. `MAKEFLAGS="-j$nproc" makepkg -sc`
 6. Repeat steps III)  
 
-# IIIII) Grub process :  
+# V) Grub process :  
 
 0. Open a terminal  
 2. Type `efibootmgr`  
